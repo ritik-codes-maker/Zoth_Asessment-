@@ -25,7 +25,7 @@ function StatBlock({
       <p className="text-[13px] text-foreground/85">{label}</p>
       <p
         className={cn(
-          "mt-1.5 text-2xl leading-8 tabular-nums",
+          "mt-0.5 text-2xl leading-8 tabular-nums",
           highlight && "text-primary"
         )}
       >

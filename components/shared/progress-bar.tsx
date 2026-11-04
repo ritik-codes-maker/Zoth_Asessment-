@@ -23,7 +23,7 @@ function ProgressBar({
     <div data-slot="progress-bar" className={cn("w-full", className)}>
       <Progress value={value} aria-label={label} />
       {(startLabel || endLabel) && (
-        <div className="mt-2 flex justify-between gap-4 text-[11px] text-foreground/85 tabular-nums">
+        <div className="mt-1.5 flex justify-between gap-4 text-[11px] text-foreground/85 tabular-nums">
           <span>{startLabel}</span>
           <span>{endLabel}</span>
         </div>

@@ -24,9 +24,9 @@ function ProgressStatCard({
   return (
     <Panel
       data-slot="progress-stat-card"
-      className={cn("px-2 py-2.5", className)}
+      className={cn("px-2 pt-2 pb-1.5", className)}
     >
-      <div className="flex items-center justify-between gap-4 border-b border-border pb-2 text-[9px] tabular-nums">
+      <div className="flex items-center justify-between gap-4 border-b border-border pb-1 text-[9px] leading-4 tabular-nums">
         <span>{label}</span>
         <span className="text-[11px] text-primary">{value}</span>
       </div>

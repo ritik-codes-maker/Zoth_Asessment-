@@ -26,7 +26,7 @@ function InfoRow({
   className,
 }: InfoRowProps) {
   return (
-    <dl data-slot="info-row" className={cn("py-2 text-[13px]", className)}>
+    <dl data-slot="info-row" className={cn("py-1 text-[13px]", className)}>
       <div className="flex items-center justify-between gap-4">
         <dt className="flex min-w-0 items-center gap-2.5">
           {icon && (
@@ -43,7 +43,7 @@ function InfoRow({
       {details?.map((detail, index) => (
         <div
           key={index}
-          className="mt-3 flex items-center justify-between gap-4 pl-6"
+          className="mt-1.5 flex items-center justify-between gap-4 pl-6"
         >
           <dt className="min-w-0">{detail.label}</dt>
           <dd className="shrink-0 text-right tabular-nums">{detail.value}</dd>

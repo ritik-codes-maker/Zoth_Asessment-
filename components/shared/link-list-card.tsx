@@ -20,10 +20,10 @@ function LinkListCard({ title, items, className }: LinkListCardProps) {
     <Panel
       variant="glow"
       data-slot="link-list-card"
-      className={cn("px-7 py-5", className)}
+      className={cn("px-7 pt-4 pb-5", className)}
     >
       <h3 className="text-sm">{title}</h3>
-      <ul className="mt-6 space-y-6 text-[11px]">
+      <ul className="mt-[19px] space-y-5 text-[11px]">
         {items.map((item) => (
           <li
             key={`${item.label}-${item.href}`}

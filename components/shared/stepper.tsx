@@ -52,7 +52,7 @@ function Stepper({ steps, currentStep = 0, className }: StepperProps) {
               </p>
               <p className="mt-0.5 text-sm">{step.title}</p>
               {step.description && (
-                <p className="mt-1 text-[11px] text-foreground/70">
+                <p className="text-[11px] text-foreground/70">
                   {step.description}
                 </p>
               )}

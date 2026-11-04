@@ -45,16 +45,16 @@ function Footer({
           <NewsletterForm {...newsletter} className="mt-8" />
         </div>
 
-        <div className="flex gap-16 sm:gap-40">
-          {columns.map((column) => (
-            <div key={column.title}>
+        <div className="flex gap-16 sm:gap-40 lg:gap-[212px]">
+          {columns.map((column, index) => (
+            <div key={index}>
               <h3 className="text-sm uppercase">{column.title}</h3>
-              <ul className="mt-5 space-y-1">
+              <ul className="mt-4 space-y-1.5 text-[13px]">
                 {column.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[13px] text-foreground/60 transition-colors hover:text-foreground"
+                      className="text-foreground/60 transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>

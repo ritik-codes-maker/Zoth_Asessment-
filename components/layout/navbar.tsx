@@ -57,16 +57,20 @@ function Navbar({
       <div className="flex min-h-[34px] items-center justify-between gap-4">
         <BrandLogo name={brandName} />
 
-        <CornerFrame cornerSize={5} className="hidden lg:block">
+        <CornerFrame
+          cornerSize={4.5}
+          offset={2}
+          className="hidden lg:ml-auto lg:block xl:ml-[204px]"
+        >
           <nav
             aria-label="Main"
-            className="flex h-[34px] items-center gap-12 bg-secondary px-14"
+            className="flex h-[31px] items-center gap-[47.3px] bg-secondary px-[54.7px] pt-0.5"
           >
             {links.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
-                className="text-xs text-foreground/70 transition-colors hover:text-foreground"
+                className="text-[10px] text-foreground/70 transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -77,7 +81,7 @@ function Navbar({
         <NavActions
           secondaryAction={secondaryAction}
           primaryAction={primaryAction}
-          className="hidden lg:flex"
+          className="hidden lg:ml-auto lg:flex"
         />
 
         <button
@@ -104,7 +108,7 @@ function Navbar({
           <nav aria-label="Mobile" className="flex flex-col gap-1">
             {links.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="py-2 text-sm text-foreground/80 hover:text-foreground"

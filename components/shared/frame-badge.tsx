@@ -9,11 +9,15 @@ function FrameBadge({ className, children, ...props }: ComponentProps<"div">) {
       data-slot="frame-badge"
       cornerSize={5}
       className={cn(
-        "inline-flex h-[22px] items-center justify-center border border-border-strong px-9 text-[13px] tracking-[0.12em] text-primary",
+        "inline-flex h-[22px] items-center justify-center bg-background px-[37px] text-[13px] tracking-[0.12em] text-primary",
         className
       )}
       {...props}
     >
+      {/* On its own layer so the border and corners round to the same device
+          pixels. Browsers shrink borders at fractional display scales, so
+          corners measured from inside a real border drift by a pixel. */}
+      <span aria-hidden className="absolute inset-0 border border-border-strong" />
       {children}
     </CornerFrame>
   )

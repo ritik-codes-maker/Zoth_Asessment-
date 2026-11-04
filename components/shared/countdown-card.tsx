@@ -26,7 +26,7 @@ function CountdownCard({
     <Panel
       data-slot="countdown-card"
       className={cn(
-        "flex flex-col gap-4 px-3 py-4 sm:flex-row sm:items-center sm:justify-between",
+        "flex flex-col gap-4 px-3 py-3.5 sm:flex-row sm:items-center sm:justify-between",
         className
       )}
     >
