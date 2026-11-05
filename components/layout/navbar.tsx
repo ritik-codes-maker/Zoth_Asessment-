@@ -32,7 +32,7 @@ function Navbar({
 
         <CornerFrame
           cornerSize={4.5}
-          offset={2}
+          offset={1.5}
           className="hidden lg:ml-[88px] lg:block"
         >
           <nav

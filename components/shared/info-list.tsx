@@ -35,9 +35,9 @@ function InfoRow({
       )}
     >
       <div className="flex items-center justify-between gap-4">
-        <dt className="flex min-w-0 items-center gap-[9.8px]">
+        <dt className="flex min-w-0 items-center gap-[9.3px]">
           {icon && (
-            <span aria-hidden className="shrink-0 [&_svg]:size-[11.5px]">
+            <span aria-hidden className="shrink-0 [&_svg]:size-3">
               {icon}
             </span>
           )}

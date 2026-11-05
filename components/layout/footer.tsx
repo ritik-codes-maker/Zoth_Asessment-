@@ -38,7 +38,7 @@ function Footer({
     <footer data-slot="footer" className={cn("site-container", className)}>
       <div className="flex flex-col gap-10 md:flex-row md:justify-between lg:px-7">
         <div>
-          <p className="max-w-[210px] text-[11px] leading-4 text-foreground/60">
+          <p className="max-w-[250px] text-[13px] leading-[19px] text-foreground/60">
             {description}
           </p>
           <SocialLinks links={socialLinks} className="mt-3" />
@@ -48,8 +48,8 @@ function Footer({
         <div className="flex gap-16 sm:gap-40 lg:gap-[212px]">
           {columns.map((column, index) => (
             <div key={index}>
-              <h3 className="text-sm uppercase">{column.title}</h3>
-              <ul className="mt-4 space-y-1.5 text-[13px]">
+              <h3 className="text-[15px] uppercase">{column.title}</h3>
+              <ul className="mt-4 space-y-1.5 text-sm">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -67,10 +67,10 @@ function Footer({
       </div>
 
       <div className="mt-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:px-7">
-        <p className="max-w-[460px] text-[10px] leading-4 text-foreground/80">
+        <p className="max-w-[552px] text-xs leading-[19px] text-foreground/80">
           {legal}
         </p>
-        {meta && <p className="text-[10px] text-foreground/80">{meta}</p>}
+        {meta && <p className="text-xs text-foreground/80">{meta}</p>}
       </div>
     </footer>
   )

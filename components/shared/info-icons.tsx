@@ -9,7 +9,7 @@ function LineIcon({ children, ...props }: IconProps) {
       viewBox="0 0 16 16"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.15"
+      strokeWidth="1.46"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
@@ -22,7 +22,7 @@ function LineIcon({ children, ...props }: IconProps) {
 
 function BlocksIcon(props: IconProps) {
   return (
-    <LineIcon viewBox="-.8 -.8 17.6 17.6" {...props}>
+    <LineIcon viewBox="-.8 -.8 17.6 17.6" strokeWidth="1.6" {...props}>
       <path d="M.8 4.5c0-.5.4-.9.9-.9h3.7c.5 0 .9.4.9.9v4.9h4.9c.5 0 .9.4.9.9v4c0 .5-.4.9-.9.9H1.7c-.5 0-.9-.4-.9-.9z" />
       <path d="M.8 9.4h5.5v5.8" />
       <rect x="9" y=".8" width="6.2" height="6.4" rx=".9" />
@@ -32,10 +32,13 @@ function BlocksIcon(props: IconProps) {
 
 function HandCoinIcon(props: IconProps) {
   return (
-    <LineIcon {...props}>
-      <circle cx="3.3" cy="2.6" r="1.9" />
-      <path d="m.8 10.7 3.7-3.6c1-.9 2.3-1.1 3.6-.7l.5-1.9c.4-1.3 1.9-1.9 3-1.2.9.6 1.2 1.7.8 2.6l-.2.6 1.9.6c.7.3.9 1.2.4 1.8l-4.4 4.9c-.9 1-2.2 1.3-3.4.8l-1.7 1.1z" />
-      <path d="M4.5 11.4c1.7-.1 3.5-.6 5-1.8.9-.8 1.1-1.6.4-2.3" />
+    <LineIcon viewBox="12.5 8.5 62.5 62.5" strokeWidth="5.7" {...props}>
+      <circle cx="27.4" cy="20.2" r="8.4" />
+      <circle cx="55.5" cy="31.4" r="8.3" />
+      <path d="M16.2 51.4 32.2 67.9" />
+      <path d="M21.9 50.4 35.8 37.5C36.4 37 37 36.9 38 36.9H47" />
+      <path d="M62 34.7H68C72.2 34.7 74 39 71.8 41.9L56 58.2C54.8 59.5 53.6 60 52 60H37.8C35.4 60 33.6 61 32 63.2" />
+      <path d="M41 48.5H49.5L62 37M52 38V47" />
     </LineIcon>
   )
 }

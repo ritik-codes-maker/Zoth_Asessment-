@@ -44,10 +44,10 @@ function LinkedinIcon(props: IconProps) {
 
 function MediumIcon(props: IconProps) {
   return (
-    <Icon {...props}>
+    <Icon viewBox="1 1 22 22" {...props}>
       <path
         fillRule="evenodd"
-        d="M1 1h22v22H1V1Zm4.5 4.5v1.2l1.4 1.4v7.9L5.5 17.3v1.2h4.6v-1.2l-1.4-1.3V9.6l4 8.9h.9l3.5-8.9v6.6l-1.2 1.1v1.2h4.9v-1.2l-1.2-1.1V8.1l1.2-1.4V5.5h-3.5l-3 7.6-3.3-7.6H5.5Z"
+        d="M2.5 1h19A1.5 1.5 0 0 1 23 2.5v19a1.5 1.5 0 0 1-1.5 1.5h-19A1.5 1.5 0 0 1 1 21.5v-19A1.5 1.5 0 0 1 2.5 1ZM6.41 6.2V7.27L7.44 8.52V15.57L6.41 16.73V17.81H9.77V16.73L8.74 15.57V9.86L11.67 17.81H12.33L14.89 9.86V15.75L14.01 16.73V17.81H17.59V16.73L16.72 15.75V8.52L17.59 7.27V6.2H15.03L12.84 12.99 10.43 6.2Z"
       />
     </Icon>
   )

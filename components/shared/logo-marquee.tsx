@@ -90,9 +90,11 @@ function LogoMarquee({ label, logos, className }: LogoMarqueeProps) {
             <BandMark shape="tee-up" className="-right-[5px] -bottom-1.5" />
           </div>
 
-          <div className="flex min-w-0 flex-1 overflow-hidden pl-[19px] [mask-image:linear-gradient(to_right,transparent,rgb(0_0_0/0.35)_2%,rgb(0_0_0/0.4)_4.7%,black_7.3%,black_92%,transparent)]">
+          <div className="flex min-w-0 flex-1 overflow-hidden pl-[19px] [mask-image:linear-gradient(to_right,transparent,black_2%,black_92%,transparent)]">
             <div className="flex w-max animate-marquee motion-reduce:animate-none">
               <LogoRow logos={logos} />
+              <LogoRow logos={logos} hidden />
+              <LogoRow logos={logos} hidden />
               <LogoRow logos={logos} hidden />
             </div>
           </div>

@@ -20,7 +20,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${brandFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <div className="mx-auto flex w-full max-w-[1550px] flex-1 flex-col">
+            {children}
+          </div>
+        </QueryProvider>
       </body>
     </html>
   );

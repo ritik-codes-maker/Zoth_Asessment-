@@ -14,12 +14,19 @@ function BrandLogo({ name, href = "/", className }: BrandLogoProps) {
       data-slot="brand-logo"
       className={cn("inline-flex items-center gap-2 text-xl font-medium", className)}
     >
-      <svg viewBox="0 0 24 24" aria-hidden className="size-6">
-        <circle cx="12" cy="12" r="12" fill="white" />
-        <path
-          fill="black"
-          d="M10.6 11.2 6 5.6a8.3 8.3 0 0 1 5.8-1.9l.6 6.5a2.4 2.4 0 0 0-1.8 1Zm3.2-1 2.7-6a8.3 8.3 0 0 1 4.3 4.5l-6 2.3a2.4 2.4 0 0 0-1-.8Zm.5 3.2 6.5 1a8.3 8.3 0 0 1-3.4 5l-3.8-5.1c.3-.3.6-.6.7-.9Zm-3.2 1.5-1.2 6.4a8.3 8.3 0 0 1-5.5-3.2l5.2-3.9c.4.3.9.6 1.5.7Zm-2.7-2.6-6.5.4a8.3 8.3 0 0 1 1.6-6l5.3 3.9c-.3.5-.4 1-.4 1.7Z"
-        />
+      <svg viewBox="10 8.5 40 40" aria-hidden className="size-6">
+        <circle cx="30" cy="28.5" r="20" fill="#FFFFFF" />
+        <g
+          fill="#000000"
+          stroke="#000000"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          transform="translate(-1.5 2.5)"
+        >
+          <path d="M28 15 L26 15 L28 23 L25 26 L19 27 L19 29 L20 30 L23 29 L27 27 L30 21 L29 19 L29 16 Z" />
+          <path d="M35 15 L34 16 L33 21 L36 27 L39 28 L43 30 L44 29 L44 27 L38 26 L35 23 L35 21 L37 17 L37 15 Z" />
+          <path d="M23 35 L24 37 L26 36 L31 31 L34 32 L39 37 L40 36 L40 35 L35 30 L28 30 Z" />
+        </g>
       </svg>
       {name}
     </Link>

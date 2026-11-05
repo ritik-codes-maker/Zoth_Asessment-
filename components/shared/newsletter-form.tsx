@@ -38,20 +38,20 @@ function NewsletterForm({
           type="email"
           name="email"
           required
-          aria-label={placeholder}
+          aria-label="Email address"
           placeholder={placeholder}
           onChange={() => setIsSubmitted(false)}
-          className="h-[39px] flex-1 border-transparent bg-input px-3 text-[11px] md:text-[11px]"
+          className="h-[39px] flex-1 border-0 bg-input px-3 text-xs transition-colors focus-visible:bg-secondary focus-visible:ring-0 md:text-xs"
         />
         <Button
           type="submit"
-          className="h-[39px] w-[97px] shrink-0 px-0 text-[9px] font-bold tracking-[0.2em] uppercase"
+          className="h-[39px] w-[97px] shrink-0 px-0 text-[10px] font-bold tracking-[0.2em] uppercase"
         >
           {buttonLabel}
         </Button>
       </form>
       {isSubmitted && successMessage && (
-        <p role="status" className="mt-2 text-[11px] text-foreground/75">
+        <p role="status" className="mt-2 text-xs text-foreground/75">
           {successMessage}
         </p>
       )}

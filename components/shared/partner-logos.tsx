@@ -26,19 +26,6 @@ function LogoImage({ src, name, width, height, displayWidth }: LogoImageProps) {
   )
 }
 
-function BorderlessLogo() {
-  return (
-    <span className="flex items-center gap-[3px] text-[10.5px] font-semibold tracking-[-0.01em]">
-      <svg viewBox="0 0 20 17" aria-hidden className="h-[17px] w-5">
-        <path fill="#7f5746" d="M0 3.5 6.5 0 20 5.5v3H9z" />
-        <path fill="#694739" d="M0 3.5 9 8.5 7 17l-7-3.5z" />
-        <path fill="#573a2e" d="M9 8.5h11v.5L7 17z" />
-      </svg>
-      Borderless
-    </span>
-  )
-}
-
 // Its hairline strokes fall apart as an image, so this one stays as live text.
 function MindfulnessLogo() {
   return (
@@ -65,13 +52,25 @@ function SpheraLogo() {
   )
 }
 
-// Traced from the Figma screenshot, so these are stand-ins for real exports.
-// Replacing a file in public/logos keeps its place in the row.
+// TAISU is traced from the Figma screenshot, so it is a stand-in for a real
+// export. Replacing a file in public/logos keeps its place in the row.
 const PARTNER_LOGOS: MarqueeLogo[] = [
-  { name: "Borderless", logo: <BorderlessLogo />, spacing: 73 },
+  {
+    name: "Borderless",
+    spacing: 73,
+    logo: (
+      <LogoImage
+        src="/logos/borderless.png"
+        name="Borderless"
+        width={300}
+        height={78}
+        displayWidth={75}
+      />
+    ),
+  },
   {
     name: "TAISU",
-    spacing: 66.5,
+    spacing: 68.5,
     logo: (
       <LogoImage
         src="/logos/taisu.png"
@@ -84,40 +83,40 @@ const PARTNER_LOGOS: MarqueeLogo[] = [
   },
   {
     name: "Blockchain Founders Fund",
-    spacing: 65,
+    spacing: 69,
     logo: (
       <LogoImage
         src="/logos/blockchain-founders-fund.png"
         name="Blockchain Founders Fund"
-        width={138}
-        height={40}
-        displayWidth={86}
+        width={328}
+        height={71}
+        displayWidth={82}
       />
     ),
   },
   {
     name: "Chainlink",
-    spacing: 74,
+    spacing: 76,
     logo: (
       <LogoImage
         src="/logos/chainlink.png"
         name="Chainlink"
-        width={113}
-        height={38}
-        displayWidth={70}
+        width={268}
+        height={68}
+        displayWidth={67}
       />
     ),
   },
   {
     name: "Coinbase",
-    spacing: 67,
+    spacing: 70,
     logo: (
       <LogoImage
         src="/logos/coinbase.png"
         name="Coinbase"
-        width={108}
-        height={24}
-        displayWidth={67}
+        width={251}
+        height={45}
+        displayWidth={63}
       />
     ),
   },

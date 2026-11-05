@@ -46,7 +46,7 @@ export default function Home() {
           description="Lorem ipsum dolor sit amet consectetur adipiscing elit sed"
           socialLinks={SOCIAL_LINKS}
           newsletter={{
-            placeholder: "Enter your email",
+            placeholder: "[XX]",
             buttonLabel: "Demo",
             successMessage: "Thanks, you're on the list.",
           }}

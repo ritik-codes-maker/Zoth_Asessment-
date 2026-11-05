@@ -9,11 +9,11 @@ import {
 } from "@/components/shared/social-icons"
 
 const PLATFORMS = {
-  x: { label: "X", Icon: XIcon },
-  youtube: { label: "YouTube", Icon: YoutubeIcon },
-  discord: { label: "Discord", Icon: DiscordIcon },
-  linkedin: { label: "LinkedIn", Icon: LinkedinIcon },
-  medium: { label: "Medium", Icon: MediumIcon },
+  x: { label: "X", Icon: XIcon, iconClass: "mr-px size-3.5" },
+  youtube: { label: "YouTube", Icon: YoutubeIcon, iconClass: "size-4" },
+  discord: { label: "Discord", Icon: DiscordIcon, iconClass: "size-4" },
+  linkedin: { label: "LinkedIn", Icon: LinkedinIcon, iconClass: "size-4" },
+  medium: { label: "Medium", Icon: MediumIcon, iconClass: "size-4" },
 }
 
 type SocialLink = {
@@ -30,10 +30,10 @@ function SocialLinks({ links, className }: SocialLinksProps) {
   return (
     <ul
       data-slot="social-links"
-      className={cn("flex items-center gap-3", className)}
+      className={cn("flex items-center gap-3.5", className)}
     >
       {links.map(({ platform, href }) => {
-        const { label, Icon } = PLATFORMS[platform]
+        const { label, Icon, iconClass } = PLATFORMS[platform]
 
         return (
           <li key={platform}>
@@ -42,9 +42,9 @@ function SocialLinks({ links, className }: SocialLinksProps) {
               target="_blank"
               rel="noreferrer"
               aria-label={label}
-              className="block text-foreground/75 transition-colors hover:text-primary"
+              className="block text-foreground/50 transition-colors hover:text-foreground/85"
             >
-              <Icon className="size-3.5" />
+              <Icon className={iconClass} />
             </a>
           </li>
         )

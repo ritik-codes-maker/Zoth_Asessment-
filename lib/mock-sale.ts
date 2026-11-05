@@ -53,7 +53,7 @@ function getSale(): SaleData {
       { name: "Round 1", raised: 440_000, cap: 1_000_000 },
       { name: "Round 2", raised: 600_000, cap: 3_000_000 },
     ],
-    stage: "Live",
+    stage: "[XX]",
     currentStep: 0,
     totalSupply: 1_000_000_000,
     minContribution: 100,

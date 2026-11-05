@@ -7,7 +7,7 @@ function HeroSection() {
     <section
       id="sale"
       data-slot="hero-section"
-      className="site-container mt-10 grid gap-10 pb-16 lg:mt-[45px] lg:grid-cols-[525px_1fr] lg:gap-0 lg:pb-[85px]"
+      className="site-container mt-10 grid gap-10 pb-16 lg:mt-[45px] lg:grid-cols-[48.6%_1fr] lg:gap-0 lg:pb-[85px]"
     >
       <div className="min-w-0 lg:border-r lg:border-border-strong lg:pt-[7px] lg:pr-6">
         <FrameBadge>Lorem ipsum</FrameBadge>

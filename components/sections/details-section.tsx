@@ -23,7 +23,7 @@ function DetailsSection() {
     <section
       id="details"
       data-slot="details-section"
-      className="site-container mt-16 grid gap-12 lg:mt-[85px] lg:grid-cols-[372px_minmax(0,615px)] lg:justify-between"
+      className="site-container mt-16 grid gap-12 lg:mt-[85px] lg:grid-cols-[34.4%_56.9%] lg:justify-between"
     >
       <div>
         <h2 className="text-4xl leading-tight tracking-[-0.01em]">
@@ -63,7 +63,7 @@ function DetailsSection() {
               label: "Lorem ipsum",
               value: (
                 <>
-                  <DollarCoinIcon className="size-[12.5px]" />
+                  <DollarCoinIcon className="size-3" />
                   DEMO
                 </>
               ),

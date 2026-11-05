@@ -27,30 +27,78 @@ const TOP_RAILS = [141, 243, 326, 410, 498, 577]
 // Frame sides run past the bottom of the hero, so their lower edges never show.
 const FRAME_BOTTOM = 1400
 
-// Short brighter strokes along the lines, as if catching the light.
-const HIGHLIGHTS = [
-  "141,3 164,27",
-  "200,70 217,70",
-  "280,70 293,70 301,82",
-  "451,92 460,107 470,107",
-  "518,107 537,107",
-  "584,107 591,107 593,115",
-  "45,440 82,444 82,457",
-  "82,512 82,525 104,525",
-  "82,690 82,680 97,677",
-  "1208,125 1224,115 1224,125",
-  "1224,195 1224,204 1240,196",
-  "1190,296 1224,283",
-  "1224,682 1252,690 1252,703",
-  "1151,397 1151,389 1172,384",
-  "1151,445 1151,454 1143,455",
-  "1092,461 1101,460",
-  "1092,648 1118,655",
-]
+type Segment = Record<"x1" | "y1" | "x2" | "y2", number>
 
 function mirror(x: number) {
   return WIDTH + 1 - x
 }
+
+function frameEdge(x1: number, y1: number, x2: number, y2: number): Segment {
+  return { x1, y1, x2, y2 }
+}
+
+// A stretch of a side rail, from its distance `fromX` to `toX` off the page edge.
+function sideRailPart(
+  startY: number,
+  fromX: number,
+  toX: number,
+  side: "left" | "right" = "left"
+): Segment {
+  const place = side === "left" ? (x: number) => x : mirror
+
+  return {
+    x1: place(fromX),
+    y1: sideRailY(startY, fromX),
+    x2: place(toX),
+    y2: sideRailY(startY, toX),
+  }
+}
+
+function topRailPart(startX: number, fromY: number, toY: number): Segment {
+  return {
+    x1: topRailX(startX, fromY),
+    y1: fromY,
+    x2: topRailX(startX, toY),
+    y2: toY,
+  }
+}
+
+// Short brighter strokes, as if catching the light. Each is worked out from the
+// line it sits on, so it can't drift away from it. These run along frame sides...
+const FRAME_HIGHLIGHTS = [
+  frameEdge(200, 70, 217, 70),
+  frameEdge(280, 70, topRailX(243, 70), 70),
+  frameEdge(topRailX(410, 107), 107, 470, 107),
+  frameEdge(518, 107, 537, 107),
+  frameEdge(584, 107, topRailX(577, 107), 107),
+  frameEdge(82, sideRailY(434, 82), 82, 457),
+  frameEdge(82, 512, 82, 525),
+  frameEdge(82, 525, 104, 525),
+  frameEdge(82, 690, 82, sideRailY(703, 82)),
+  frameEdge(mirror(82), sideRailY(61, 82), mirror(82), 129),
+  frameEdge(mirror(82), 195, mirror(82), sideRailY(159, 82)),
+  frameEdge(mirror(54), sideRailY(703, 54), mirror(54), 703),
+  frameEdge(mirror(155), 397, mirror(155), sideRailY(348, 155)),
+  frameEdge(mirror(155), 445, mirror(155), sideRailY(434, 155)),
+]
+
+// ...and these along the rails between them.
+const RAIL_HIGHLIGHTS = [
+  topRailPart(141, 3, 27),
+  topRailPart(243, 70, 82),
+  topRailPart(410, 92, 107),
+  topRailPart(577, 107, 115),
+  sideRailPart(434, 45, 82),
+  sideRailPart(703, 82, 97),
+  sideRailPart(61, 98, 82, "right"),
+  sideRailPart(159, 82, 66, "right"),
+  sideRailPart(251, 116, 82, "right"),
+  sideRailPart(703, 82, 54, "right"),
+  sideRailPart(348, 155, 134, "right"),
+  sideRailPart(434, 155, 163, "right"),
+  sideRailPart(434, 214, 205, "right"),
+  sideRailPart(703, 214, 188, "right"),
+]
 
 function sideRailY(startY: number, x: number) {
   return startY + ((VANISHING_POINT.y - startY) * x) / VANISHING_POINT.x
@@ -63,7 +111,7 @@ function topRailX(startX: number, y: number) {
   )
 }
 
-function Line({ x1, y1, x2, y2 }: Record<"x1" | "y1" | "x2" | "y2", number>) {
+function Line({ x1, y1, x2, y2 }: Segment) {
   return (
     <line x1={x1} y1={y1} x2={x2} y2={y2} vectorEffect="non-scaling-stroke" />
   )
@@ -168,14 +216,17 @@ function GridBackground({ className }: { className?: string }) {
               </g>
             ))}
 
-            {HIGHLIGHTS.map((points) => (
-              <polyline
-                key={points}
-                points={points}
-                vectorEffect="non-scaling-stroke"
-                className="stroke-grid-highlight"
-              />
-            ))}
+            <g className="stroke-grid-highlight">
+              {/* Crisp like the frames, so the two land on the same pixels. */}
+              <g shapeRendering="crispEdges">
+                {FRAME_HIGHLIGHTS.map((segment, index) => (
+                  <Line key={index} {...segment} />
+                ))}
+              </g>
+              {RAIL_HIGHLIGHTS.map((segment, index) => (
+                <Line key={index} {...segment} />
+              ))}
+            </g>
           </g>
         </svg>
       </div>

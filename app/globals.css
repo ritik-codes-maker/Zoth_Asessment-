@@ -21,6 +21,7 @@
   --color-band-line: var(--band-line);
   --color-band-mark: var(--band-mark);
   --color-logo: var(--logo);
+  --color-badge: var(--badge);
   --color-grid-line: var(--grid-line);
   --color-grid-highlight: var(--grid-highlight);
   --color-destructive: var(--destructive);
@@ -43,7 +44,7 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee: marquee 60s linear infinite;
 }
 
 /* Colours sampled from the Figma screenshots. The design is dark only. */
@@ -74,6 +75,7 @@
   --band-line: #531a1a;
   --band-mark: #833c3c;
   --logo: #7f5746;
+  --badge: #020304;
   --grid-line: #291313;
   --grid-highlight: #4a2a26;
   --input: #150a05;
@@ -88,7 +90,7 @@
 }
 
 @utility site-container {
-  @apply mx-auto w-full max-w-[1128px] px-4 md:px-6;
+  @apply mx-auto w-full max-w-[1248px] px-4 md:px-6;
 }
 
 @layer base {
