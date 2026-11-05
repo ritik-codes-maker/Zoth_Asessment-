@@ -1,4 +1,4 @@
-# Token Sale
+# Zoth Assesment 
 
 A token sale landing page with a full purchase journey: connect, verify, choose a plan, buy, and view positions. Sale data comes from a mock API, so no wallet, database, or environment variables are needed.
 

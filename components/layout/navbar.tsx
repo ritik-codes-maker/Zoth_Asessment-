@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, type ReactNode } from "react"
-import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { cn } from "cn"
 
@@ -40,13 +39,13 @@ function Navbar({
             className="flex h-[31px] items-center gap-[47.3px] bg-secondary px-[54.7px] pt-0.5"
           >
             {links.map((link) => (
-              <Link
+              <button
                 key={link.href}
-                href={link.href}
+                type="button"
                 className="text-[10px] text-foreground/70 transition-colors hover:text-foreground"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
         </CornerFrame>
@@ -76,14 +75,14 @@ function Navbar({
         >
           <nav aria-label="Mobile" className="flex flex-col gap-1">
             {links.map((link) => (
-              <Link
+              <button
                 key={link.href}
-                href={link.href}
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className="py-2 text-sm text-foreground/80 hover:text-foreground"
+                className="py-2 text-left text-sm text-foreground/80 hover:text-foreground"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
           <div className="mt-3 flex flex-col gap-3 *:w-full">{actions}</div>

@@ -45,6 +45,10 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --animate-marquee: marquee 60s linear infinite;
+  --animate-scan-sweep: scan-sweep 2.4s ease-in-out infinite;
+  --animate-doodle-draw: doodle-draw 0.5s ease-out both;
+  --animate-doodle-pop: doodle-pop 0.4s ease-out both;
+  --animate-doodle-float: doodle-float 3.2s ease-in-out infinite;
 }
 
 /* Colours sampled from the Figma screenshots. The design is dark only. */
@@ -83,6 +87,57 @@
   --radius: 0rem;
 }
 
+/* Paths using this need pathLength="1". */
+@keyframes doodle-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes doodle-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes doodle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scan-sweep {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-50%);
@@ -100,7 +155,16 @@
   body {
     @apply bg-background text-foreground;
   }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
   html {
     @apply font-sans;
+    scrollbar-width: none;
+  }
+  /* Older Safari and Chromium don't support scrollbar-width. */
+  html::-webkit-scrollbar {
+    display: none;
   }
 }

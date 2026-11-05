@@ -1,6 +1,7 @@
 "use client"
 
 import { useSaleFlow } from "@/components/providers/sale-flow-provider"
+import { ReceiptDoodle } from "@/components/sections/sale-steps/receipt-doodle"
 import { DataRows } from "@/components/shared/data-rows"
 import { FramedButton } from "@/components/shared/framed-button"
 import { formatNumber, formatUsd } from "@/lib/format"
@@ -10,11 +11,7 @@ function ReceiptStep() {
 
   return (
     <>
-      <div
-        aria-hidden
-        data-slot="receipt-placeholder"
-        className="mx-auto aspect-square w-full max-w-56 bg-[#141010]"
-      />
+      <ReceiptDoodle />
       <h2 className="mt-[19px] text-center text-[12px] uppercase">Lorem ipsum</h2>
       <DataRows
         className="mx-3 mt-3.5"
