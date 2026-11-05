@@ -81,7 +81,7 @@ function DollarCoinIcon(props: IconProps) {
     <svg viewBox="0 0 16 16" fill="none" aria-hidden {...props}>
       <circle cx="8" cy="8" r="8" fill="currentColor" />
       <g
-        stroke="var(--background)"
+        stroke="var(--coin-mark, var(--background))"
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"

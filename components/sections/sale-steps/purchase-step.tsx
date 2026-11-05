@@ -1,10 +1,12 @@
 "use client"
 
+import Image from "next/image"
 import { useId, useState, type ReactNode } from "react"
-import { ArrowDown, ChevronDown } from "lucide-react"
+import { ArrowDown, Check, ChevronDown } from "lucide-react"
 import { cn } from "cn"
 
 import { useSaleFlow } from "@/components/providers/sale-flow-provider"
+import { CornerFrame } from "@/components/shared/corner-frame"
 import { DataRows } from "@/components/shared/data-rows"
 import { FramedButton } from "@/components/shared/framed-button"
 import { DollarCoinIcon } from "@/components/shared/info-icons"
@@ -12,7 +14,10 @@ import { Checkbox } from "@/components/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
@@ -39,6 +44,23 @@ function SwapBox({ label, hint, token, children }: SwapBoxProps) {
         <div className="flex shrink-0 items-center gap-2 text-[11px]">{token}</div>
       </div>
     </div>
+  )
+}
+
+/** The corner-framed box showing whether a plan is the chosen one. */
+function PlanIndicator({ isSelected }: { isSelected: boolean }) {
+  return (
+    <CornerFrame
+      cornerSize={5}
+      cornerClassName={isSelected ? "border-foreground" : "border-primary"}
+      className="flex size-[22px] shrink-0 items-center justify-center"
+    >
+      {isSelected && (
+        <span className="flex size-[18px] items-center justify-center bg-primary">
+          <Check aria-hidden className="size-3 stroke-white stroke-[3]" />
+        </span>
+      )}
+    </CornerFrame>
   )
 }
 
@@ -88,18 +110,37 @@ function PurchaseStep() {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="start"
-            sideOffset={6}
-            className="w-32 rounded-none bg-card p-0 ring-1 ring-border-bright"
+            sideOffset={19}
+            className="w-[177px] rounded-none bg-card p-0 shadow-[0_0_38px_rgba(255,69,9,0.3)] ring-1 ring-primary"
           >
-            {data?.plans.map((option) => (
-              <DropdownMenuItem
-                key={option.id}
-                onClick={() => choosePlan(option.id)}
-                className="rounded-none px-3 py-2 text-[10px] focus:bg-secondary"
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="flex h-[25px] items-center border-b border-border px-[13px] py-0 text-[7.5px] font-normal tracking-[0.08em] text-foreground/75 uppercase">
+                Lorem ipsum
+              </DropdownMenuLabel>
+              <DropdownMenuRadioGroup
+                value={plan?.id}
+                onValueChange={choosePlan}
+                className="divide-y divide-border"
               >
-                {option.name}
-              </DropdownMenuItem>
-            ))}
+                {data?.plans.map((option) => (
+                  <DropdownMenuRadioItem
+                    key={option.id}
+                    value={option.id}
+                    closeOnClick
+                    // PlanIndicator replaces the item's built-in check mark.
+                    className="min-h-[45px] justify-between gap-3 rounded-none px-[13px] py-0 focus:bg-secondary [&>[data-slot=dropdown-menu-radio-item-indicator]]:hidden"
+                  >
+                    <span className="min-w-0 text-[10.5px] leading-[14px]">
+                      {option.name}
+                      <span className="block text-[9px] leading-3 opacity-60">
+                        {option.tag}
+                      </span>
+                    </span>
+                    <PlanIndicator isSelected={option.id === plan?.id} />
+                  </DropdownMenuRadioItem>
+                ))}
+              </DropdownMenuRadioGroup>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
         <span className="text-[11px] text-primary">{plan?.tag}</span>
@@ -118,7 +159,7 @@ function PurchaseStep() {
               >
                 Demo
               </button>
-              <DollarCoinIcon aria-hidden className="size-3.5 text-[#2775ca]" />
+              <DollarCoinIcon aria-hidden className="size-4 text-[#2775ca] [--coin-mark:white]" />
               DEMO
             </>
           }
@@ -151,7 +192,13 @@ function PurchaseStep() {
           hint={plan ? formatUsd(plan.price) : ""}
           token={
             <>
-              <span aria-hidden className="size-3.5 rounded-full bg-foreground" />
+              <Image
+                src="/logos/zoth-symbol.svg"
+                alt=""
+                width={16}
+                height={16}
+                className="size-4"
+              />
               Demo
             </>
           }
@@ -180,8 +227,8 @@ function PurchaseStep() {
           {
             label: "Demo",
             value: (
-              <span className="flex items-center gap-[3px] text-[13px] font-bold tracking-[-0.02em]">
-                <span aria-hidden className="size-[7px] bg-[#0052ff]" />
+              <span className="flex items-baseline gap-[2px] text-[13px] font-bold tracking-[-0.02em]">
+                <span aria-hidden className="size-2 shrink-0 bg-[#0052ff]" />
                 base
               </span>
             ),
