@@ -17,6 +17,12 @@
   --color-divider: var(--divider);
   --color-track: var(--track);
   --color-wordmark: var(--wordmark);
+  --color-band: var(--band);
+  --color-band-line: var(--band-line);
+  --color-band-mark: var(--band-mark);
+  --color-logo: var(--logo);
+  --color-grid-line: var(--grid-line);
+  --color-grid-highlight: var(--grid-highlight);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -64,6 +70,12 @@
   --divider: #1e1c1b;
   --track: #350f0f;
   --wordmark: #190701;
+  --band: #0b0101;
+  --band-line: #531a1a;
+  --band-mark: #833c3c;
+  --logo: #7f5746;
+  --grid-line: #291313;
+  --grid-highlight: #4a2a26;
   --input: #150a05;
   --ring: #ff4509;
   --radius: 0rem;

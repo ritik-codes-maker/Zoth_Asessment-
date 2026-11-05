@@ -1,5 +1,6 @@
 "use client"
 
+import { useSaleFlow } from "@/components/providers/sale-flow-provider"
 import { CountdownCard } from "@/components/shared/countdown-card"
 import { Panel } from "@/components/shared/panel"
 import { ProgressBar } from "@/components/shared/progress-bar"
@@ -14,6 +15,8 @@ const PLACEHOLDER_ROUND_COUNT = 2
 
 function SaleStats() {
   const { data, isPending, isError, isFetching, refetch } = useSale()
+  const { step } = useSaleFlow()
+  const rounds = step === "positions" ? data?.claimRounds : data?.rounds
   const raisedPercent = data ? getPercent(data.raised, data.goal) : 0
 
   return (
@@ -58,9 +61,9 @@ function SaleStats() {
 
       <div className="mt-6 grid gap-[7px] sm:grid-cols-2">
         {Array.from(
-          { length: data?.rounds.length ?? PLACEHOLDER_ROUND_COUNT },
+          { length: rounds?.length ?? PLACEHOLDER_ROUND_COUNT },
           (_, index) => {
-            const round = data?.rounds[index]
+            const round = rounds?.[index]
             const percent = round ? getPercent(round.raised, round.cap) : 0
 
             return (
@@ -71,14 +74,12 @@ function SaleStats() {
                 progress={percent}
                 startLabel={
                   <SaleValue
-                    select={(sale) =>
-                      formatCompactUsd(sale.rounds[index].raised)
-                    }
+                    select={() => formatCompactUsd(round?.raised ?? 0)}
                   />
                 }
                 endLabel={
                   <SaleValue
-                    select={(sale) => formatCompactUsd(sale.rounds[index].cap)}
+                    select={() => formatCompactUsd(round?.cap ?? 0)}
                   />
                 }
               />

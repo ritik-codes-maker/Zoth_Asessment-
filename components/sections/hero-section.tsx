@@ -1,4 +1,4 @@
-import { SaleActionCard } from "@/components/sections/sale-action-card"
+import { SaleCard } from "@/components/sections/sale-card"
 import { SaleStats } from "@/components/sections/sale-stats"
 import { FrameBadge } from "@/components/shared/frame-badge"
 
@@ -24,7 +24,7 @@ function HeroSection() {
       </div>
 
       <div className="min-w-0 lg:pt-[7px] lg:pl-[26px]">
-        <SaleActionCard />
+        <SaleCard />
       </div>
     </section>
   )

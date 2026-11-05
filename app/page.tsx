@@ -1,17 +1,17 @@
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Footer } from "@/components/layout/footer";
 import { GridBackground } from "@/components/layout/grid-background";
-import { Navbar } from "@/components/layout/navbar";
 import { Wordmark } from "@/components/layout/wordmark";
+import { SaleFlowProvider } from "@/components/providers/sale-flow-provider";
 import { DetailsSection } from "@/components/sections/details-section";
 import { HeroSection } from "@/components/sections/hero-section";
+import { SiteHeader } from "@/components/sections/site-header";
 import { LogoMarquee } from "@/components/shared/logo-marquee";
+import { PARTNER_LOGOS } from "@/components/shared/partner-logos";
 import {
   BRAND_NAME,
   FOOTER_COLUMNS,
   LEGAL_TEXT,
-  NAV_LINKS,
-  PARTNER_LOGOS,
   SOCIAL_LINKS,
 } from "@/lib/content";
 
@@ -22,13 +22,10 @@ export default function Home() {
       <main className="flex-1">
         <div className="relative isolate pt-[30px]">
           <GridBackground />
-          <Navbar
-            brandName={BRAND_NAME}
-            links={NAV_LINKS}
-            secondaryAction={{ label: "Lorem ipsum", href: "#details" }}
-            primaryAction={{ label: "Lorem ipsum", href: "#sale" }}
-          />
-          <HeroSection />
+          <SaleFlowProvider>
+            <SiteHeader />
+            <HeroSection />
+          </SaleFlowProvider>
         </div>
         <div id="partners">
           <LogoMarquee

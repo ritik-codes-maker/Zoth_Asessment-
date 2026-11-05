@@ -1,53 +1,26 @@
 "use client"
 
-import { useState } from "react"
+import { useState, type ReactNode } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { cn } from "cn"
 
 import { BrandLogo } from "@/components/layout/brand-logo"
 import { CornerFrame } from "@/components/shared/corner-frame"
-import { Button } from "@/components/ui/button"
 import type { LinkItem } from "@/lib/types"
 
 type NavbarProps = {
   brandName: string
   links: LinkItem[]
-  secondaryAction?: LinkItem
-  primaryAction?: LinkItem
+  /** The buttons on the right, and at the bottom of the mobile menu. */
+  actions?: ReactNode
   className?: string
-}
-
-function NavActions({
-  secondaryAction,
-  primaryAction,
-  className,
-}: Pick<NavbarProps, "secondaryAction" | "primaryAction" | "className">) {
-  return (
-    <div className={cn("gap-3", className)}>
-      {secondaryAction && (
-        <Button
-          variant="outline"
-          nativeButton={false}
-          render={<Link href={secondaryAction.href} />}
-        >
-          {secondaryAction.label}
-        </Button>
-      )}
-      {primaryAction && (
-        <Button nativeButton={false} render={<Link href={primaryAction.href} />}>
-          {primaryAction.label}
-        </Button>
-      )}
-    </div>
-  )
 }
 
 function Navbar({
   brandName,
   links,
-  secondaryAction,
-  primaryAction,
+  actions,
   className,
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
@@ -60,7 +33,7 @@ function Navbar({
         <CornerFrame
           cornerSize={4.5}
           offset={2}
-          className="hidden lg:ml-auto lg:block xl:ml-[204px]"
+          className="hidden lg:ml-[88px] lg:block"
         >
           <nav
             aria-label="Main"
@@ -78,11 +51,7 @@ function Navbar({
           </nav>
         </CornerFrame>
 
-        <NavActions
-          secondaryAction={secondaryAction}
-          primaryAction={primaryAction}
-          className="hidden lg:ml-auto lg:flex"
-        />
+        <div className="hidden gap-3 lg:flex">{actions}</div>
 
         <button
           type="button"
@@ -117,11 +86,7 @@ function Navbar({
               </Link>
             ))}
           </nav>
-          <NavActions
-            secondaryAction={secondaryAction}
-            primaryAction={primaryAction}
-            className="mt-3 flex flex-col [&>*]:w-full"
-          />
+          <div className="mt-3 flex flex-col gap-3 *:w-full">{actions}</div>
         </div>
       )}
     </header>

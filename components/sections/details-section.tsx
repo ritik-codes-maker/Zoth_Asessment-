@@ -1,14 +1,13 @@
 "use client"
 
 import {
-  CalendarClock,
-  Coins,
-  Disc3,
-  Layers,
-  Shapes,
-  Target,
-} from "lucide-react"
-
+  BlocksIcon,
+  CalendarClockIcon,
+  DocumentsIcon,
+  DollarCoinIcon,
+  HandCoinIcon,
+  RingsIcon,
+} from "@/components/shared/info-icons"
 import { InfoList } from "@/components/shared/info-list"
 import { LinkListCard } from "@/components/shared/link-list-card"
 import { SaleValue } from "@/components/shared/sale-value"
@@ -58,26 +57,26 @@ function DetailsSection() {
         <InfoList
           className="mt-[54px]"
           items={[
-            { icon: <Shapes />, label: "Demo", value: "DEMO" },
+            { icon: <BlocksIcon />, label: "Demo", value: "DEMO" },
             {
-              icon: <Coins />,
+              icon: <HandCoinIcon />,
               label: "Lorem ipsum",
               value: (
                 <>
-                  <Disc3 aria-hidden className="size-3.5" />
+                  <DollarCoinIcon className="size-[12.5px]" />
                   DEMO
                 </>
               ),
             },
             {
-              icon: <Layers />,
+              icon: <DocumentsIcon />,
               label: "Lorem ipsum",
               value: (
                 <SaleValue select={(sale) => formatNumber(sale.totalSupply)} />
               ),
             },
             {
-              icon: <Target />,
+              icon: <RingsIcon />,
               label: "Demo",
               value: (
                 <SaleValue select={(sale) => formatUsd(sale.minContribution)} />
@@ -85,10 +84,11 @@ function DetailsSection() {
               details: [{ label: "Demo", value: "Lorem ipsum" }],
             },
             {
-              icon: <CalendarClock />,
+              icon: <CalendarClockIcon />,
               label: "Lorem ipsum",
               value: "Demo",
               href: "#details",
+              className: "pt-2",
             },
           ]}
         />

@@ -2,12 +2,10 @@ import { cn } from "cn"
 
 type WordmarkProps = {
   text: string
-  /** How many leading letters are shown in the accent colour. */
-  accentLetters?: number
   className?: string
 }
 
-function Wordmark({ text, accentLetters = 1, className }: WordmarkProps) {
+function Wordmark({ text, className }: WordmarkProps) {
   return (
     <div
       aria-hidden
@@ -18,8 +16,14 @@ function Wordmark({ text, accentLetters = 1, className }: WordmarkProps) {
       )}
     >
       <span>
-        <span className="text-primary">{text.slice(0, accentLetters)}</span>
-        {text.slice(accentLetters)}
+        {[...text].map((letter, index) => (
+          <span
+            key={index}
+            className="transition-colors duration-300 hover:text-primary motion-reduce:transition-none"
+          >
+            {letter}
+          </span>
+        ))}
       </span>
     </div>
   )

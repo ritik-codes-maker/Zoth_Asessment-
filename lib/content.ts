@@ -1,5 +1,4 @@
 import type { FooterColumn } from "@/components/layout/footer"
-import type { MarqueeLogo } from "@/components/shared/logo-marquee"
 import type { LinkListItem } from "@/components/shared/link-list-card"
 import type { SocialLink } from "@/components/shared/social-links"
 import type { LinkItem } from "@/lib/types"
@@ -8,21 +7,15 @@ import type { LinkItem } from "@/lib/types"
 
 const BRAND_NAME = "Demo"
 
+const ACCOUNT_LABEL = "[XX]"
+const ACCOUNT_ADDRESS = "0x0000000000000000000000000000000000000000"
+const EXPLORER_URL = `https://basescan.org/address/${ACCOUNT_ADDRESS}`
+
 const NAV_LINKS: LinkItem[] = [
   { label: "Demo", href: "#sale" },
   { label: "Demo", href: "#partners" },
   { label: "Demo", href: "#details" },
   { label: "Demo", href: "#footer" },
-]
-
-const PARTNER_LOGOS: MarqueeLogo[] = [
-  { name: "Borderless" },
-  { name: "TAISU" },
-  { name: "Blockchain" },
-  { name: "Chainlink" },
-  { name: "coinbase" },
-  { name: "Mindfulness" },
-  { name: "Partner" },
 ]
 
 const RESOURCE_LINKS: LinkListItem[] = [
@@ -61,11 +54,13 @@ const LEGAL_TEXT =
   "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna"
 
 export {
+  ACCOUNT_ADDRESS,
+  ACCOUNT_LABEL,
   BRAND_NAME,
+  EXPLORER_URL,
   FOOTER_COLUMNS,
   LEGAL_TEXT,
   NAV_LINKS,
-  PARTNER_LOGOS,
   RESOURCE_LINKS,
   SOCIAL_LINKS,
 }
