@@ -2,6 +2,8 @@
 
 A token sale landing page with a full purchase journey: connect, verify, choose a plan, buy, and view positions. Sale data comes from a mock API, so no wallet, database, or environment variables are needed.
 
+I have added some UI/UX touches from my end , i have made the different figma screen to transition into smooth user journey and add some company specific animation in the blank figma boxes to enhance them.
+
 ## Tech stack
 
 | Area | Tools |
